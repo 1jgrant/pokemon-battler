@@ -1,4 +1,5 @@
 //pokemon class
+const pokedex = require("./pokedex");
 
 class Pokemon {
   constructor(name, level) {
@@ -16,11 +17,7 @@ class Pokemon {
     this.sound = "default";
   }
 
-  setStats() {
-    const name = this.name;
-    if (name) {
-    }
-  }
+  initStats() {}
 }
 
 module.exports = Pokemon;

@@ -7,7 +7,6 @@ describe("Pokemon class", () => {
   describe("PROPERTIES", () => {
     test("instance of the Pokemon class should have all required properties", () => {
       const testPokemon = new Pokemon("test", 10);
-      console.log(testPokemon);
       expect(testPokemon).toHaveProperty("name", "test");
       expect(testPokemon).toHaveProperty("level", 10);
       expect(testPokemon).toHaveProperty("hp", 10);
@@ -22,5 +21,19 @@ describe("Pokemon class", () => {
       expect(testPokemon).toHaveProperty("sound", "default");
     });
   });
-  describe("METHODS", () => {});
+  describe("METHODS", () => {
+    test("initStats method should initialise the pokemon class instance stats to those from the pokedex reference at given level", () => {
+      const testBulbasaur = new Pokemon("bulbasaur", 15);
+      testBulbasaur.initStats();
+      const expHP = 38;
+      const expAtt = 19;
+      const expDef = 19;
+      const expSpeed = 18;
+      console.log(testBulbasaur);
+      expect(testBulbasaur.hp).toBe(expHP);
+      expect(testBulbasaur.att).toBe(expAtt);
+      expect(testBulbasaur.def).toBe(expDef);
+      expect(testBulbasaur.speed).toBe(expSpeed);
+    });
+  });
 });
