@@ -22,9 +22,11 @@ class Pokemon {
   initStats() {
     //If specified pokemon is in the pokedex, use its base stats to initialise
     //the instance, otherwise use the missingNo stats
+    //ref is reference of pokedex object
     const ref = pokedex.hasOwnProperty(this.name)
       ? pokedex[this.name]
       : pokedex.missingNo;
+    //use the keys from pokedex to initialise the instance
     const keys = Object.keys(ref);
     keys.forEach((key) => {
       if (key === "type") {

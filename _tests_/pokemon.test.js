@@ -123,12 +123,17 @@ describe("Pokemon class", () => {
     test("initStats - when stats are changed after initialisation, the pokedex and moves objects should not be mutated", () => {
       const testBulbasaur = new Pokemon("bulbasaur", 15);
       testBulbasaur.initStats();
-      testBulbasaur.speed = 100;
+      testBulbasaur.type = "fire";
       testBulbasaur.moves.tackle.type = "grass";
-      expect(testBulbasaur.speed).toBe(100);
+      testBulbasaur.speed = 100;
+      //checking updated the instance
+      expect(testBulbasaur.type).toBe("fire");
       expect(testBulbasaur.moves.tackle.type).toBe("grass");
-      expect(pokedex.bulbasaur.speed).toBe(45);
+      expect(testBulbasaur.speed).toBe(100);
+      //checking non mutation of the reference
+      expect(pokedex.bulbasaur.type).toBe("grass");
       expect(movesRef.tackle.type).toBe("normal");
+      expect(pokedex.bulbasaur.speed).toBe(45);
     });
   });
 });
