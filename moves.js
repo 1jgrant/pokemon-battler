@@ -3,7 +3,7 @@
 
 const moves = {
     scratch : {
-        type : 'normal'
+        type : 'normal',
         category : 'physical',
         power : 40,
         accuracy : 100,
@@ -12,7 +12,7 @@ const moves = {
         priority = 0,
     },
     tackle : {
-        type : 'normal'
+        type : 'normal',
         category : 'physical',
         power : 40,
         accuracy : 100,
@@ -29,7 +29,7 @@ const moves = {
     //     currentPP : 10,
     // },
     'vine whip' : {
-        type : 'grass'
+        type : 'grass',
         category : 'physical',
         power : 45,
         accuracy : 100,
@@ -38,7 +38,7 @@ const moves = {
         priority = 0,
     },
     'quick attack' : {
-        type : 'normal'
+        type : 'normal',
         category : 'physical',
         power : 40,
         accuracy : 100,
@@ -47,7 +47,7 @@ const moves = {
         priority = 1,
     },
     'hyper fang' : {
-        type : 'normal'
+        type : 'normal',
         category : 'physical',
         power : 80,
         accuracy : 90,
@@ -56,7 +56,7 @@ const moves = {
         priority = 0,
     },
     'bubble' : {
-        type : 'water'
+        type : 'water',
         category : 'special',
         power : 40,
         accuracy : 100,
@@ -65,7 +65,7 @@ const moves = {
         priority = 0,
     },
     'water gun' : {
-        type : 'water'
+        type : 'water',
         category : 'special',
         power : 40,
         accuracy : 100,
@@ -74,7 +74,7 @@ const moves = {
         priority = 0,
     },
     'ember' : {
-        type : 'fire'
+        type : 'fire',
         category : 'special',
         power : 40,
         accuracy : 100,
