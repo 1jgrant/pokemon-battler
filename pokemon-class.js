@@ -6,7 +6,7 @@ const movesRef = require("./moves");
 class Pokemon {
   constructor(name, level) {
     this.name = name;
-    this.level = level < 1 ? 1 : level;
+    this.level = level < 1 ? 1 : level < 100 ? level : 100;
     this.hp = 10;
     this.att = 10;
     this.def = 10;

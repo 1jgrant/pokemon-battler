@@ -22,9 +22,11 @@ describe("Pokemon class", () => {
       expect(testPokemon).toHaveProperty("moves", {});
       expect(testPokemon).toHaveProperty("sound", "default");
     });
-    test("pokemon instances should have a minimum level of 1", () => {
+    test("pokemon instances should have min and max levels of 1 & 100", () => {
       const testPokemon = new Pokemon("test", 0);
       expect(testPokemon.level).toBe(1);
+      const testPokemon2 = new Pokemon("test2", 101);
+      expect(testPokemon2.level).toBe(100);
     });
   });
   describe("METHODS", () => {
