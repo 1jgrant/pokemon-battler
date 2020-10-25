@@ -58,3 +58,5 @@ const pokedex = {
     },
   },
 };
+
+module.exports = pokedex;
