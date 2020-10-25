@@ -66,7 +66,7 @@ const pokedex = {
     speed: 29,
     type: "normal",
     moves: {
-      1: ["water gun"], //tail whip
+      1: ["water gun"],
     },
   },
 };
