@@ -5,7 +5,7 @@ describe("Pokemon class", () => {
     expect(typeof new Pokemon()).toBe("object");
   });
   describe("PROPERTIES", () => {
-    test("instance of the Pokemon class should have all required properties", () => {
+    test("instance of the Pokemon class should have all required properties at default values before initialisation", () => {
       const testPokemon = new Pokemon("test", 10);
       expect(testPokemon).toHaveProperty("name", "test");
       expect(testPokemon).toHaveProperty("level", 10);
@@ -17,10 +17,13 @@ describe("Pokemon class", () => {
       expect(testPokemon).toHaveProperty("speed", 10);
       expect(testPokemon).toHaveProperty("type", "normal");
       expect(testPokemon).toHaveProperty("isConscious", true);
-      expect(testPokemon).toHaveProperty("moves", []);
+      expect(testPokemon).toHaveProperty("moves", {});
       expect(testPokemon).toHaveProperty("sound", "default");
     });
-    test("should ", () => {});
+    test("pokemon instances should have a minimum level of 1", () => {
+      const testPokemon = new Pokemon("test", 0);
+      expect(testPokemon.level).toBe(1);
+    });
   });
   describe("METHODS", () => {
     test("initStats - method should initialise the pokemon class instance stats using pokedex reference base stats for specified pokemon and its level", () => {
@@ -31,9 +34,24 @@ describe("Pokemon class", () => {
       const expDef = 19;
       const expSpeed = 18;
       const expMoves = {
-        1: ["tackle"],
-        7: ["leech seed"],
-        13: ["vine whip"],
+        tackle: {
+          type: "normal",
+          category: "physical",
+          power: 40,
+          accuracy: 100,
+          maxPP: 35,
+          currentPP: 35,
+          priority: 0,
+        },
+        "vine whip": {
+          type: "grass",
+          category: "physical",
+          power: 45,
+          accuracy: 100,
+          maxPP: 25,
+          currentPP: 25,
+          priority: 0,
+        },
       };
       expect(testBulbasaur.hp).toBe(expHP);
       expect(testBulbasaur.att).toBe(expAtt);
@@ -49,8 +67,24 @@ describe("Pokemon class", () => {
       const expDef2 = 17;
       const expSpeed2 = 24;
       const expMoves2 = {
-        1: ["scratch"],
-        9: ["ember"],
+        scratch: {
+          type: "normal",
+          category: "physical",
+          power: 40,
+          accuracy: 100,
+          maxPP: 35,
+          currentPP: 35,
+          priority: 0,
+        },
+        ember: {
+          type: "fire",
+          category: "special",
+          power: 40,
+          accuracy: 100,
+          maxPP: 25,
+          currentPP: 25,
+          priority: 0,
+        },
       };
       expect(testCharmander.hp).toBe(expHP2);
       expect(testCharmander.att).toBe(expAtt2);
@@ -58,6 +92,7 @@ describe("Pokemon class", () => {
       expect(testCharmander.speed).toBe(expSpeed2);
       expect(testCharmander.type).toBe("fire");
       expect(testCharmander.moves).toEqual(expMoves2);
+      console.log(testCharmander);
     });
     test("initStats - when specified pokemon name is not present in pokedex instance of pokemon class is initialised with missingNo stats", () => {
       const testRandom = new Pokemon("random", 15);
@@ -67,7 +102,15 @@ describe("Pokemon class", () => {
       const expDef = 5;
       const expSpeed = 13;
       const expMoves = {
-        1: ["water gun"],
+        "water gun": {
+          type: "water",
+          category: "special",
+          power: 40,
+          accuracy: 100,
+          maxPP: 25,
+          currentPP: 25,
+          priority: 0,
+        },
       };
       expect(testRandom.hp).toBe(expHP);
       expect(testRandom.att).toBe(expAtt);
