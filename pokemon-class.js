@@ -31,8 +31,7 @@ class Pokemon {
         this[key] = ref[key];
       } else if (key === "moves") {
         const moveList = Object.values(ref.moves).flat();
-        console.log(moveList);
-        moveList.forEach((move) => (this.moves[move] = movesRef[move]));
+        moveList.forEach((move) => (this.moves[move] = { ...movesRef[move] }));
       } else if (key === "hp") {
         this[key] = Math.floor(
           (ref[key] * 2 * this.level) / 100 + this.level + 10

@@ -1,4 +1,6 @@
 const Pokemon = require("../pokemon-class");
+const pokedex = require("../pokedex");
+const movesRef = require("../moves");
 
 describe("Pokemon class", () => {
   test("Pokemon class should return an object", () => {
@@ -92,7 +94,6 @@ describe("Pokemon class", () => {
       expect(testCharmander.speed).toBe(expSpeed2);
       expect(testCharmander.type).toBe("fire");
       expect(testCharmander.moves).toEqual(expMoves2);
-      console.log(testCharmander);
     });
     test("initStats - when specified pokemon name is not present in pokedex instance of pokemon class is initialised with missingNo stats", () => {
       const testRandom = new Pokemon("random", 15);
@@ -118,6 +119,16 @@ describe("Pokemon class", () => {
       expect(testRandom.speed).toBe(expSpeed);
       expect(testRandom.type).toBe("normal");
       expect(testRandom.moves).toEqual(expMoves);
+    });
+    test("initStats - when stats are changed after initialisation, the pokedex and moves objects should not be mutated", () => {
+      const testBulbasaur = new Pokemon("bulbasaur", 15);
+      testBulbasaur.initStats();
+      testBulbasaur.speed = 100;
+      testBulbasaur.moves.tackle.type = "grass";
+      expect(testBulbasaur.speed).toBe(100);
+      expect(testBulbasaur.moves.tackle.type).toBe("grass");
+      expect(pokedex.bulbasaur.speed).toBe(45);
+      expect(movesRef.tackle.type).toBe("normal");
     });
   });
 });
