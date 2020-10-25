@@ -1,11 +1,12 @@
 //pokemon class
 //stat calculations from https://bulbapedia.bulbagarden.net/wiki/Statistic#Base_stat_values
 const pokedex = require("./pokedex");
+const movesRef = require("./moves");
 
 class Pokemon {
   constructor(name, level) {
     this.name = name;
-    this.level = level;
+    this.level = level < 1 ? 1 : level;
     this.hp = 10;
     this.att = 10;
     this.def = 10;
@@ -14,7 +15,7 @@ class Pokemon {
     this.speed = 10;
     this.type = "normal";
     this.isConscious = true;
-    this.moves = [];
+    this.moves = {};
     this.sound = "default";
   }
 
@@ -26,8 +27,12 @@ class Pokemon {
       : pokedex.missingNo;
     const keys = Object.keys(ref);
     keys.forEach((key) => {
-      if (key === "type" || key === "moves") {
+      if (key === "type") {
         this[key] = ref[key];
+      } else if (key === "moves") {
+        const moveList = Object.values(ref.moves).flat();
+        console.log(moveList);
+        moveList.forEach((move) => (this.moves[move] = movesRef[move]));
       } else if (key === "hp") {
         this[key] = Math.floor(
           (ref[key] * 2 * this.level) / 100 + this.level + 10

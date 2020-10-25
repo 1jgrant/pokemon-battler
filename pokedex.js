@@ -12,7 +12,7 @@ const pokedex = {
     type: "grass",
     moves: {
       1: ["tackle"], //growl
-      7: ["leech seed"],
+      //   7: ["leech seed"],
       13: ["vine whip"],
     },
   },
