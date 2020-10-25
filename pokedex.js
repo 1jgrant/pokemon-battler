@@ -57,6 +57,18 @@ const pokedex = {
       14: ["hyper fang"],
     },
   },
+  missingNo: {
+    hp: 33,
+    att: 136,
+    def: 0,
+    spAtt: 6,
+    spDef: 6,
+    speed: 29,
+    type: "normal",
+    moves: {
+      1: ["water gun"], //tail whip
+    },
+  },
 };
 
 module.exports = pokedex;
