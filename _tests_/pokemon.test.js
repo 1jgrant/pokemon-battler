@@ -73,7 +73,7 @@ describe("Pokemon class", () => {
       expect(testRandom.att).toBe(expAtt);
       expect(testRandom.def).toBe(expDef);
       expect(testRandom.speed).toBe(expSpeed);
-      expect(testRandom.type).toBe("grass");
+      expect(testRandom.type).toBe("normal");
       expect(testRandom.moves).toEqual(expMoves);
     });
   });
