@@ -3,6 +3,7 @@
 
 const movesRef = {
   scratch: {
+    name: "scratch",
     type: "normal",
     category: "physical",
     power: 40,
@@ -12,6 +13,7 @@ const movesRef = {
     priority: 0,
   },
   tackle: {
+    name: "tackle",
     type: "normal",
     category: "physical",
     power: 40,
@@ -29,6 +31,7 @@ const movesRef = {
   //     currentPP : 10,
   // },
   "vine whip": {
+    name: "vine whip",
     type: "grass",
     category: "physical",
     power: 45,
@@ -38,6 +41,7 @@ const movesRef = {
     priority: 0,
   },
   "quick attack": {
+    name: "quick attack",
     type: "normal",
     category: "physical",
     power: 40,
@@ -47,6 +51,7 @@ const movesRef = {
     priority: 1,
   },
   "hyper fang": {
+    name: "hyper fang",
     type: "normal",
     category: "physical",
     power: 80,
@@ -56,6 +61,7 @@ const movesRef = {
     priority: 0,
   },
   bubble: {
+    name: "bubble",
     type: "water",
     category: "special",
     power: 40,
@@ -65,6 +71,7 @@ const movesRef = {
     priority: 0,
   },
   "water gun": {
+    name: "water gun",
     type: "water",
     category: "special",
     power: 40,
@@ -74,6 +81,7 @@ const movesRef = {
     priority: 0,
   },
   ember: {
+    name: "ember",
     type: "fire",
     category: "special",
     power: 40,

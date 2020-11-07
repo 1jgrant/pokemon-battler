@@ -39,6 +39,7 @@ describe("Pokemon class", () => {
       const expSpeed = 18;
       const expMoves = {
         tackle: {
+          name: "tackle",
           type: "normal",
           category: "physical",
           power: 40,
@@ -48,6 +49,7 @@ describe("Pokemon class", () => {
           priority: 0,
         },
         "vine whip": {
+          name: "vine whip",
           type: "grass",
           category: "physical",
           power: 45,
@@ -72,6 +74,7 @@ describe("Pokemon class", () => {
       const expSpeed2 = 24;
       const expMoves2 = {
         scratch: {
+          name: "scratch",
           type: "normal",
           category: "physical",
           power: 40,
@@ -81,6 +84,7 @@ describe("Pokemon class", () => {
           priority: 0,
         },
         ember: {
+          name: "ember",
           type: "fire",
           category: "special",
           power: 40,
@@ -106,6 +110,7 @@ describe("Pokemon class", () => {
       const expSpeed = 13;
       const expMoves = {
         "water gun": {
+          name: "water gun",
           type: "water",
           category: "special",
           power: 40,
