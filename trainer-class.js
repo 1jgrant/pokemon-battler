@@ -3,14 +3,14 @@ const Pokemon = require("./pokemon-class");
 class Trainer {
   constructor(max = 6, name = "ash") {
     this.name = name;
-    this.max = max;
+    this.maxTeam = max;
     this.team = [];
     this.items = [];
     this.activePokemon = this.team[0];
   }
 
   catch(pokemon, level) {
-    if (this.team.length < this.max) {
+    if (this.team.length < this.maxTeam) {
       const newPoke = new Pokemon(pokemon, level);
       newPoke.initStats();
       this.team.push(newPoke);

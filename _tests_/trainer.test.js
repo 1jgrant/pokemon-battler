@@ -9,13 +9,13 @@ describe("Trainer class", () => {
       const testTrainer = new Trainer();
       const testTrainer2 = new Trainer(3, "gary");
       expect(testTrainer).toHaveProperty("name", "ash");
-      expect(testTrainer).toHaveProperty("max", 6);
+      expect(testTrainer).toHaveProperty("maxTeam", 6);
       expect(testTrainer).toHaveProperty("team", []);
       expect(testTrainer).toHaveProperty("items", []);
       expect(testTrainer).toHaveProperty("activePokemon", undefined);
 
       expect(testTrainer2).toHaveProperty("name", "gary");
-      expect(testTrainer2).toHaveProperty("max", 3);
+      expect(testTrainer2).toHaveProperty("maxTeam", 3);
     });
   });
   describe("METHODS", () => {
