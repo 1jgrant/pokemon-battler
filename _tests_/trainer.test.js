@@ -13,6 +13,7 @@ describe("Trainer class", () => {
       expect(testTrainer).toHaveProperty("team", []);
       expect(testTrainer).toHaveProperty("items", []);
       expect(testTrainer).toHaveProperty("activePokemon", undefined);
+      expect(testTrainer).toHaveProperty("nextMove");
 
       expect(testTrainer2).toHaveProperty("name", "gary");
       expect(testTrainer2).toHaveProperty("maxTeam", 3);

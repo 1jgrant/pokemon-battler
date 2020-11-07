@@ -7,6 +7,7 @@ class Trainer {
     this.team = [];
     this.items = [];
     this.activePokemon = this.team[0];
+    this.nextMove = {};
   }
 
   catch(pokemon, level) {
