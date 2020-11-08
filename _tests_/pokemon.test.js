@@ -1,5 +1,5 @@
 const Pokemon = require("../pokemon-class");
-const pokedex = require("../pokedex");
+const { pokedex } = require("../pokedex");
 const movesRef = require("../moves");
 
 describe("Pokemon class", () => {

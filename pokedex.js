@@ -71,4 +71,6 @@ const pokedex = {
   },
 };
 
-module.exports = pokedex;
+const namesArr = Object.keys(pokedex);
+
+module.exports = { pokedex, namesArr };

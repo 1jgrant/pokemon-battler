@@ -18,7 +18,7 @@ has defender fainted? if so,
 otherwise, restart loop
 
 -- damage calculations: 
-https://bulbapedia.bulbagarden.net/wiki/Damage#Damage_calculation
+https://bulbapedia.bulbagarden.net/wiki/Damage#Damage_calculation//
 */
 const { types, matrix } = require("./types");
 

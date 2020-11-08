@@ -1,6 +1,6 @@
 //pokemon class
 //stat calculations from https://bulbapedia.bulbagarden.net/wiki/Statistic#Base_stat_values
-const pokedex = require("./pokedex");
+const { pokedex } = require("./pokedex");
 const movesRef = require("./moves");
 
 class Pokemon {
