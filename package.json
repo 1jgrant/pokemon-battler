@@ -19,5 +19,8 @@
   "homepage": "https://github.com/1jgrant/pokemon-battler#readme",
   "devDependencies": {
     "jest": "^26.6.1"
+  },
+  "dependencies": {
+    "inquirer": "^7.3.3"
   }
 }
