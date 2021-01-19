@@ -76,7 +76,7 @@ const turn = (battleInst) => {
         battleInst.t1.activePokemon.isConscious &&
         battleInst.t2.activePokemon.isConscious
       ) {
-        console.log(battleInst);
+        //console.log(battleInst);
         turn(battleInst);
       } else {
         console.log("fight is over");
