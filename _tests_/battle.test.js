@@ -65,6 +65,36 @@ describe("Battle class", () => {
         testBattle.useMove(test1, test2);
         expect(test2.team[0].hp).toBe(0);
       });
+      describe.only("moveMessages", () => {
+        test("should display a suitable message for super effective", () => {
+          console.log = jest.fn();
+          const test1 = new Trainer(1, "trainer1");
+          const test2 = new Trainer(1, "trainer2");
+          test1.catch("squirtle", 15);
+          test2.catch("charmander", 15);
+          const testBattle = new Battle(test1, test2);
+          testBattle.selectMove(test1, "bubble");
+          testBattle.selectMove(test2, "ember");
+          testBattle.useMove(test1, test2);
+          expect(console.log).toHaveBeenCalledWith(
+            "squirtle used bubble. It's super effective!\ncharmander has 20 HP remaining"
+          );
+        });
+        test("should display correct messages for not very effective attacks", () => {
+          console.log = jest.fn();
+          const test1 = new Trainer(1, "trainer1");
+          const test2 = new Trainer(1, "trainer2");
+          test1.catch("squirtle", 15);
+          test2.catch("charmander", 15);
+          const testBattle = new Battle(test1, test2);
+          testBattle.selectMove(test1, "bubble");
+          testBattle.selectMove(test2, "ember");
+          testBattle.useMove(test2, test1);
+          expect(console.log).toHaveBeenCalledWith(
+            "charmander used ember. It's not very effective.\nsquirtle has 34 HP remaining"
+          );
+        });
+      });
     });
     describe("fight", () => {
       test("method should calculate moves order based on move priority", () => {
@@ -126,5 +156,6 @@ describe("Battle class", () => {
         expect(testTrainer1.activePokemon.hp).toBe(0);
       });
     });
+    describe("createMoveMessages", () => {});
   });
 });
