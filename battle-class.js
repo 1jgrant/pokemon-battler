@@ -27,6 +27,8 @@ class Battle {
     this.t1 = trainer1;
     this.t2 = trainer2;
     this.order = [this.t1, this.t2];
+    this.winner = {};
+    this.loser = {};
   }
   // method for each trainer to select their move
   selectMove(trainer, move) {
@@ -86,14 +88,10 @@ class Battle {
       2: `It's super effective!`,
     };
     msg.effect = effect[multiplier];
-    // make string for hp bar
-    // console.log(msg.defHP);
-    // console.log(msg.defMaxHP);
-    // const hpPercent = msg.defHP / msg.defMaxHP;
-    // console.log(hpPercent);
-    console.log(
-      `${msg.att} used ${msg.move}. ${msg.effect}\n${msg.def} has ${msg.defHP}/${msg.defMaxHP} HP remaining`
-    );
+    console.log(`${msg.att} used ${msg.move}. ${msg.effect}`);
+    // console.log(
+    //   `${msg.att} used ${msg.move}. ${msg.effect} ${msg.def} has ${msg.defHP}/${msg.defMaxHP} HP remaining`
+    // );
   }
 
   createHpMessage(p1, p2) {
@@ -132,10 +130,16 @@ class Battle {
       this.createHpMessage(this.t1.activePokemon, this.t2.activePokemon);
       if (!this.order[0].activePokemon.isConscious) {
         console.log(`${this.order[0].activePokemon.name} fainted`);
+        //only using 1 pokemon, so trainer has lost
+        this.winner = this.order[1];
+        this.loser = this.order[0];
       }
     } else {
       this.createHpMessage(this.t1.activePokemon, this.t2.activePokemon);
       console.log(`${this.order[1].activePokemon.name} fainted`);
+      //only using 1 pokemon, so trainer has lost
+      this.winner = this.order[0];
+      this.loser = this.order[1];
     }
   }
 }

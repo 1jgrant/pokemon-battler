@@ -57,18 +57,17 @@ const trainerAction = (battleInst, trainer) => {
 
 const turn = async (battleInst) => {
   await trainerAction(battleInst, battleInst.t1);
-  console.log("t1 finished action");
   await trainerAction(battleInst, battleInst.t2);
-  console.log("t2 finished action");
   battleInst.fight();
   if (
     battleInst.t1.activePokemon.isConscious &&
     battleInst.t2.activePokemon.isConscious
   ) {
-    //console.log(battleInst);
     turn(battleInst);
   } else {
-    console.log("fight is over");
+    console.log(
+      `${battleInst.loser.name} is out of Pokemon... ${battleInst.winner.name} has won the battle!`
+    );
   }
 };
 
@@ -108,5 +107,5 @@ inquirer
     return battle;
   })
   .then((battle) => {
-    turn(battle);
+    return turn(battle);
   });

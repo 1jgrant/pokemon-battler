@@ -77,7 +77,7 @@ describe("Battle class", () => {
           testBattle.selectMove(test2, "ember");
           testBattle.useMove(test1, test2);
           expect(console.log).toHaveBeenCalledWith(
-            "squirtle used bubble. It's super effective!\ncharmander has 20/36 HP remaining"
+            "squirtle used bubble. It's super effective!"
           );
         });
         test("should display correct messages for not very effective attacks", () => {
@@ -91,7 +91,7 @@ describe("Battle class", () => {
           testBattle.selectMove(test2, "ember");
           testBattle.useMove(test2, test1);
           expect(console.log).toHaveBeenCalledWith(
-            "charmander used ember. It's not very effective.\nsquirtle has 34/38 HP remaining"
+            "charmander used ember. It's not very effective."
           );
         });
       });
@@ -155,7 +155,7 @@ describe("Battle class", () => {
         expect(testTrainer2.activePokemon.hp).toBe(154);
         expect(testTrainer1.activePokemon.hp).toBe(0);
       });
-      test.only("method give a summary of hp after the turn is over", () => {
+      test("method give a summary of hp after the turn is over", () => {
         console.log = jest.fn();
         const testTrainer1 = new Trainer(1, "trainer1");
         const testTrainer2 = new Trainer(1, "trainer2");
