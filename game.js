@@ -55,33 +55,21 @@ const trainerAction = (battleInst, trainer) => {
   });
 };
 
-const turn = (battleInst) => {
-  const confirm = {
-    type: "confirm",
-    name: "conf",
-    message: "go?",
-    default: true,
-  };
-  inquirer
-    .prompt(confirm)
-    .then(() => {
-      return trainerAction(battleInst, battleInst.t1);
-    })
-    .then(() => {
-      return trainerAction(battleInst, battleInst.t2);
-    })
-    .then(() => {
-      battleInst.fight();
-      if (
-        battleInst.t1.activePokemon.isConscious &&
-        battleInst.t2.activePokemon.isConscious
-      ) {
-        //console.log(battleInst);
-        turn(battleInst);
-      } else {
-        console.log("fight is over");
-      }
-    });
+const turn = async (battleInst) => {
+  await trainerAction(battleInst, battleInst.t1);
+  console.log("t1 finished action");
+  await trainerAction(battleInst, battleInst.t2);
+  console.log("t2 finished action");
+  battleInst.fight();
+  if (
+    battleInst.t1.activePokemon.isConscious &&
+    battleInst.t2.activePokemon.isConscious
+  ) {
+    //console.log(battleInst);
+    turn(battleInst);
+  } else {
+    console.log("fight is over");
+  }
 };
 
 inquirer
