@@ -11,7 +11,7 @@ const setupQs = [
   {
     type: "input",
     name: "begin",
-    message: "Press enter to begin",
+    message: "Press enter to begin...",
   },
   {
     type: "input",
