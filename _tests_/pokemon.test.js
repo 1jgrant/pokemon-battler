@@ -12,6 +12,7 @@ describe("Pokemon class", () => {
       expect(testPokemon).toHaveProperty("name", "test");
       expect(testPokemon).toHaveProperty("level", 10);
       expect(testPokemon).toHaveProperty("hp", 10);
+      expect(testPokemon).toHaveProperty("maxHp", 10);
       expect(testPokemon).toHaveProperty("att", 10);
       expect(testPokemon).toHaveProperty("def", 10);
       expect(testPokemon).toHaveProperty("spAtt", 10);
@@ -34,6 +35,7 @@ describe("Pokemon class", () => {
       const testBulbasaur = new Pokemon("bulbasaur", 15);
       testBulbasaur.initStats();
       const expHP = 38;
+      const expMaxHP = 38;
       const expAtt = 19;
       const expDef = 19;
       const expSpeed = 18;
@@ -60,6 +62,7 @@ describe("Pokemon class", () => {
         },
       };
       expect(testBulbasaur.hp).toBe(expHP);
+      expect(testBulbasaur.maxHp).toBe(expMaxHP);
       expect(testBulbasaur.att).toBe(expAtt);
       expect(testBulbasaur.def).toBe(expDef);
       expect(testBulbasaur.speed).toBe(expSpeed);

@@ -8,6 +8,7 @@ class Pokemon {
     this.name = name;
     this.level = level < 1 ? 1 : level < 100 ? level : 100;
     this.hp = 10;
+    this.maxHp = 10;
     this.att = 10;
     this.def = 10;
     this.spAtt = 10;
@@ -35,9 +36,11 @@ class Pokemon {
         const moveList = Object.values(ref.moves).flat();
         moveList.forEach((move) => (this.moves[move] = { ...movesRef[move] }));
       } else if (key === "hp") {
-        this[key] = Math.floor(
+        const initialHp = Math.floor(
           (ref[key] * 2 * this.level) / 100 + this.level + 10
         );
+        this[key] = initialHp;
+        this.maxHp = initialHp;
       } else {
         this[key] = Math.floor((ref[key] * 2 * this.level) / 100 + 5);
       }
