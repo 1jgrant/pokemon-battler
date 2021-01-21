@@ -77,6 +77,7 @@ class Battle {
       def: defender.activePokemon.name,
       move: attacker.nextMove.name,
       defHP: defender.activePokemon.hp,
+      defMaxHP: defender.activePokemon.maxHp,
     };
     const effect = {
       0: `It's not effective.`,
@@ -84,12 +85,16 @@ class Battle {
       1: "",
       2: `It's super effective!`,
     };
-    //console.log(multiplier);
     msg.effect = effect[multiplier];
-    //console.log(attacker);
     console.log(
-      `${msg.att} used ${msg.move}. ${msg.effect}\n${msg.def} has ${msg.defHP} HP remaining`
+      `${msg.att} used ${msg.move}. ${msg.effect}\n${msg.def} has ${msg.defHP}/${msg.defMaxHP} HP remaining`
     );
+  }
+
+  createEndOfTurnMessage(trainer1, trainer2) {
+    const unit = Math.round(msg.defMaxHP / 20);
+    const hpPercent = Math.round((msg.defHP / msg.defMaxHP) * 100);
+    console.log(hpPercent);
   }
 
   fight() {

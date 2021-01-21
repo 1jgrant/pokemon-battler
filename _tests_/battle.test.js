@@ -77,7 +77,7 @@ describe("Battle class", () => {
           testBattle.selectMove(test2, "ember");
           testBattle.useMove(test1, test2);
           expect(console.log).toHaveBeenCalledWith(
-            "squirtle used bubble. It's super effective!\ncharmander has 20 HP remaining"
+            "squirtle used bubble. It's super effective!\ncharmander has 20/36 HP remaining"
           );
         });
         test("should display correct messages for not very effective attacks", () => {
@@ -91,7 +91,7 @@ describe("Battle class", () => {
           testBattle.selectMove(test2, "ember");
           testBattle.useMove(test2, test1);
           expect(console.log).toHaveBeenCalledWith(
-            "charmander used ember. It's not very effective.\nsquirtle has 34 HP remaining"
+            "charmander used ember. It's not very effective.\nsquirtle has 34/38 HP remaining"
           );
         });
       });
