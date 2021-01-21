@@ -167,7 +167,7 @@ describe("Battle class", () => {
         testBattle.fight();
         expect(console.log).toHaveBeenNthCalledWith(
           3,
-          `charmander HP:75/99\t[================____]\nrattata HP:60/90\t[==============______]`
+          `charmander\tHP:75/99 [================____]\nrattata\tHP:60/90 [==============______]`
         );
       });
     });

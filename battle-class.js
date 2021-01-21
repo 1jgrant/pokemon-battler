@@ -112,7 +112,7 @@ class Battle {
       .join("");
 
     console.log(
-      `${p1.name} HP:${p1.hp}/${p1.maxHp}\t[${p1Bar}]\n${p2.name} HP:${p2.hp}/${p2.maxHp}\t[${p2Bar}]`
+      `${p1.name}\tHP:${p1.hp}/${p1.maxHp} [${p1Bar}]\n${p2.name}\tHP:${p2.hp}/${p2.maxHp} [${p2Bar}]`
     );
   }
 
