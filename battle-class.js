@@ -86,15 +86,34 @@ class Battle {
       2: `It's super effective!`,
     };
     msg.effect = effect[multiplier];
+    // make string for hp bar
+    // console.log(msg.defHP);
+    // console.log(msg.defMaxHP);
+    // const hpPercent = msg.defHP / msg.defMaxHP;
+    // console.log(hpPercent);
     console.log(
       `${msg.att} used ${msg.move}. ${msg.effect}\n${msg.def} has ${msg.defHP}/${msg.defMaxHP} HP remaining`
     );
   }
 
-  createEndOfTurnMessage(trainer1, trainer2) {
-    const unit = Math.round(msg.defMaxHP / 20);
-    const hpPercent = Math.round((msg.defHP / msg.defMaxHP) * 100);
-    console.log(hpPercent);
+  createHpMessage(p1, p2) {
+    const p1Percent = p1.hp / p1.maxHp;
+    const p1BarLength = Math.ceil(20 * p1Percent);
+    const p1Bar = Array(p1BarLength)
+      .fill("=")
+      .concat(Array(20 - p1BarLength).fill("_"))
+      .join("");
+
+    const p2Percent = p2.hp / p2.maxHp;
+    const p2BarLength = Math.ceil(20 * p2Percent);
+    const p2Bar = Array(p2BarLength)
+      .fill("=")
+      .concat(Array(20 - p2BarLength).fill("_"))
+      .join("");
+
+    console.log(
+      `${p1.name} HP:${p1.hp}/${p1.maxHp}\t[${p1Bar}]\n${p2.name} HP:${p2.hp}/${p2.maxHp}\t[${p2Bar}]`
+    );
   }
 
   fight() {
@@ -110,10 +129,12 @@ class Battle {
     this.useMove(this.order[0], this.order[1]);
     if (this.order[1].activePokemon.isConscious) {
       this.useMove(this.order[1], this.order[0]);
+      this.createHpMessage(this.t1.activePokemon, this.t2.activePokemon);
       if (!this.order[0].activePokemon.isConscious) {
         console.log(`${this.order[0].activePokemon.name} fainted`);
       }
     } else {
+      this.createHpMessage(this.t1.activePokemon, this.t2.activePokemon);
       console.log(`${this.order[1].activePokemon.name} fainted`);
     }
   }

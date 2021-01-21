@@ -65,7 +65,7 @@ describe("Battle class", () => {
         testBattle.useMove(test1, test2);
         expect(test2.team[0].hp).toBe(0);
       });
-      describe.only("moveMessages", () => {
+      describe("moveMessages", () => {
         test("should display a suitable message for super effective", () => {
           console.log = jest.fn();
           const test1 = new Trainer(1, "trainer1");
@@ -154,6 +154,21 @@ describe("Battle class", () => {
         testBattle.fight();
         expect(testTrainer2.activePokemon.hp).toBe(154);
         expect(testTrainer1.activePokemon.hp).toBe(0);
+      });
+      test.only("method give a summary of hp after the turn is over", () => {
+        console.log = jest.fn();
+        const testTrainer1 = new Trainer(1, "trainer1");
+        const testTrainer2 = new Trainer(1, "trainer2");
+        testTrainer1.catch("charmander", 50);
+        testTrainer2.catch("rattata", 50);
+        const testBattle = new Battle(testTrainer1, testTrainer2);
+        testBattle.selectMove(testTrainer1, "ember");
+        testBattle.selectMove(testTrainer2, "quick attack");
+        testBattle.fight();
+        expect(console.log).toHaveBeenNthCalledWith(
+          3,
+          `charmander HP:75/99\t[================____]\nrattata HP:60/90\t[==============______]`
+        );
       });
     });
     describe("createMoveMessages", () => {});
