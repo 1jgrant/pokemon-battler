@@ -35,4 +35,4 @@ $ npm run battle
 
 ## Screenshots
 
-<img src="assets/screenshot.png" width= 500px>
+<img src="assets/screenshot.png" width= 700px>
