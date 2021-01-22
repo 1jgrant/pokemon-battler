@@ -34,3 +34,5 @@ $ npm run battle
 ```
 
 ## Screenshots
+
+<img src="assets/screenshot.png">
